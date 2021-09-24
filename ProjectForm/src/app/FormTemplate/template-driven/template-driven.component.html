@@ -22,7 +22,7 @@
             <label for="state">Estado</label>
             <select id="state" name="state" class="form-control" [(ngModel)]="dataUser.Estado">
                 <option selected>Escolher...</option>
-                <option *ngFor=""></option>
+                <option *ngFor="let state of states">{{state}}</option>
             </select>
         </div>
         <div class="form-group col-md-2">

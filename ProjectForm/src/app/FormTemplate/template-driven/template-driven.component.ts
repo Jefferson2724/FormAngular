@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DataUserModels } from 'src/app/models/dataUser-models';
+import { StatesModel } from 'src/app/models/States-model';
 
 @Component({
   selector: 'app-template-driven',
@@ -9,6 +10,7 @@ import { DataUserModels } from 'src/app/models/dataUser-models';
 })
 export class TemplateDrivenComponent implements OnInit {
   mensagem: String;
+  states:any;
   
   dataUser: DataUserModels = {
     Nome:"",
@@ -19,7 +21,9 @@ export class TemplateDrivenComponent implements OnInit {
     CEP:null,
   };
 
-  constructor() { }
+  constructor(private statesModel: StatesModel) { 
+    this.states = this.statesModel.States;
+  }
 
   ngOnInit() { }
 
