@@ -4,5 +4,5 @@ export class DataUserModels {
     Endereco: String
     Cidade: String
     Estado: String
-    CEP: String
+    CEP: Number
 }

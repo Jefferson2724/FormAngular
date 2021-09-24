@@ -1,33 +1,33 @@
 <form (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="nome">Nome:</label>
-            <input id="nome" class="form-control" name="nome" placeholder="Nome" [(ngModel)]="dataUser.Nome" type="text">
+            <label for="name">Nome:</label>
+            <input id="name" class="form-control" name="name" placeholder="Nome" [(ngModel)]="dataUser.Nome" type="text">
         </div>
         <div class="form-group col-md-6">
-            <label for="telefone">Telefone:</label>
-            <input id="telefone" class="form-control" name="telefone" placeholder="(81) 99999-9999" [(ngModel)]="dataUser.Telefone" type="number">
+            <label for="phone">Telefone:</label>
+            <input id="phone" class="form-control" name="phone" placeholder="(81) 99999-9999" [(ngModel)]="dataUser.Telefone" type="number">
         </div>
     </div>
     <div>
-        <label for="endereco">Endereco:</label>
-        <input id="endereco" class="form-control" name="endereco" placeholder="Rua dos Bobos, nº 0" [(ngModel)]="dataUser.Endereco" type="text">
+        <label for="address">Endereco:</label>
+        <input id="address" class="form-control" name="address" placeholder="Rua dos Bobos, nº 0" [(ngModel)]="dataUser.Endereco" type="text">
     </div>
     <div class="form-row spaceFormsRow">
         <div class="form-group col-md-6">
-            <label for="cidade">Cidade</label>
-            <input class="form-control" name="cidade" id="cidade" [(ngModel)]="dataUser.Cidade" type="text">
+            <label for="city">Cidade</label>
+            <input class="form-control" name="city" id="city" [(ngModel)]="dataUser.Cidade" type="text">
         </div>
         <div class="form-group col-md-4">
-            <label for="estado">Estado</label>
-            <select id="estado" name="estado" class="form-control" [(ngModel)]="dataUser.Estado">
+            <label for="state">Estado</label>
+            <select id="state" name="state" class="form-control" [(ngModel)]="dataUser.Estado">
                 <option selected>Escolher...</option>
                 <option *ngFor="let state of states">{{state}}</option>
             </select>
         </div>
         <div class="form-group col-md-2">
             <label for="CEP">CEP</label>
-            <input class="form-control" name="CEP" id="CEP" [(ngModel)]="dataUser.CEP" type="text">
+            <input class="form-control" name="CEP" id="CEP" [(ngModel)]="dataUser.CEP" type="number">
         </div>
     </div>
     <div class="form-group">
