@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TemplateDrivenComponent } from './FormTemplate/template-driven/template-driven.component';
 
+import { StatesModel } from './models/States-model';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,7 @@ import { TemplateDrivenComponent } from './FormTemplate/template-driven/template
     FormsModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [StatesModel],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
