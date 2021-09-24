@@ -19,7 +19,5 @@ export class TemplateDrivenComponent implements OnInit {
     Telefone: ${form.value.telefone}
     Endereço: ${form.value.endereco}
     `;
-
-    console.log(dados);
   }
 }
