@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { DataUserModels } from 'src/app/models/dataUser-models';
 
 @Component({
   selector: 'app-template-driven',
@@ -8,16 +9,22 @@ import { NgForm } from '@angular/forms';
 })
 export class TemplateDrivenComponent implements OnInit {
 
+  dataUser: DataUserModels = {
+    Nome:"",
+    Telefone: null,
+    Endereco:"",
+    Cidade:"",
+    Estado:"",
+    CEP:""
+  }
+
   constructor() { }
 
   ngOnInit() {
   }
 
   onSubmit(form: NgForm) {
-    let dados = `
-    Nome: ${form.value.nome}
-    Telefone: ${form.value.telefone}
-    Endereço: ${form.value.endereco}
-    `;
+    
+    console.log(this.dataUser);
   }
 }
