@@ -1,42 +1,72 @@
 <form (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="name">Nome:</label>
-            <input id="name" class="form-control" name="name" placeholder="Nome" [(ngModel)]="dataUser.Nome" type="text">
+            <label for="name" class="form-label">Nome:</label>
+            <input id="name" class="form-control" name="name" placeholder="Nome"
+            [(ngModel)]="dataUser.Nome" type="text" #name="ngModel"
+            [class.is-valid]="name.value != ''">
+            <div class="invalid-feedback" *ngIf="name.value == ''">
+                {{ mensagem }}
+            </div>
         </div>
         <div class="form-group col-md-6">
             <label for="phone">Telefone:</label>
-            <input id="phone" class="form-control" name="phone" placeholder="(81) 99999-9999" [(ngModel)]="dataUser.Telefone" type="number">
+            <input id="phone" class="form-control" name="phone" placeholder="(81) 99999-9999"
+            [(ngModel)]="dataUser.Telefone" type="number" #phone="ngModel"
+            [class.is-valid]="phone.value != null">
+            <div class="invalid-feedback" *ngIf="phone.value == null">
+                {{ mensagem }}
+            </div>
         </div>
     </div>
     <div>
         <label for="address">Endereco:</label>
-        <input id="address" class="form-control" name="address" placeholder="Rua dos Bobos, nº 0" [(ngModel)]="dataUser.Endereco" type="text">
+        <input id="address" class="form-control" name="address" placeholder="Rua dos Bobos, nº 0"
+        [(ngModel)]="dataUser.Endereco" type="text" #address="ngModel"
+        [class.is-valid]="address.value != ''">
+        <div class="invalid-feedback" *ngIf="address.value == ''">
+            {{ mensagem }}
+        </div>
     </div>
     <div class="form-row spaceFormsRow">
         <div class="form-group col-md-6">
             <label for="city">Cidade</label>
-            <input class="form-control" name="city" id="city" [(ngModel)]="dataUser.Cidade" type="text">
+            <input class="form-control" name="city" id="city"
+            [(ngModel)]="dataUser.Cidade" type="text"  #city="ngModel"
+            [class.is-valid]="city.value != ''">
+            <div class="invalid-feedback" *ngIf="city.value == ''">
+                {{ mensagem }}
+            </div>
         </div>
         <div class="form-group col-md-4">
             <label for="state">Estado</label>
-            <select id="state" name="state" class="form-control" [(ngModel)]="dataUser.Estado">
+            <select id="state" name="state" class="form-control"
+            [(ngModel)]="dataUser.Estado" #state="ngModel">
                 <option selected>Escolher...</option>
                 <option *ngFor="let state of states">{{state}}</option>
             </select>
+            <div class="invalid-feedback" *ngIf="state.value == '' || state.value == 'Escolher...'">
+                {{ mensagem }}
+            </div>
         </div>
         <div class="form-group col-md-2">
             <label for="CEP">CEP</label>
-            <input class="form-control" name="CEP" id="CEP" [(ngModel)]="dataUser.CEP" type="number">
+            <input class="form-control" name="CEP" id="CEP" placeholder="55.555-55"
+            [(ngModel)]="dataUser.CEP" type="number" #CEP="ngModel"
+            [class.is-valid]="CEP.value != null">
+            <div class="invalid-feedback" *ngIf="CEP.value == null">
+                {{ mensagem }}
+            </div>
         </div>
     </div>
     <div class="form-group">
         <div class="form-check">
-            <input class="form-check-input" id="Check" type="checkbox" required>
-            <label class="form-check-label" for="Check">
+            <input class="form-check-input" id="check" type="checkbox" 
+            name="check" ngModel>
+            <label class="form-check-label" for="check">
             Clique em mim
             </label>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Entrar</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!form.value.check">Entrar</button>
  </form>
