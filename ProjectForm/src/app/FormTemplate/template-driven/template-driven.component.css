@@ -14,3 +14,7 @@ form {
 .btn {
     width: 80px;
 }
+
+.invalid-feedback {
+    display: block !important;
+}
