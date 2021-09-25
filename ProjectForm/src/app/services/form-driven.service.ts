@@ -14,30 +14,32 @@ export class FormDrivenService {
   constructor(private http: HttpClient) { }
   
   registerUser(body:DataUserModels){
-    let responseEvent: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(undefined); 
-
+    debugger;
     this.http.post<ConfirmRegisterModel>(`${this.url}/register/user`, body, {observe: 'response'})
     .subscribe(
       response => {
         if(response.body.error){
-          console.log("Deu errado...");
-
-          return responseEvent.next(false);
+          console.log(response.status);
+          console.log(response.statusText);
+          return response.body;
         }else if(response.body.proceed){
-          console.log("Deu bom");
+          console.log(response.status);
+          console.log(response.statusText);
           
-          return responseEvent.next(true);
+          return response.body;
         }else{
-          return responseEvent.next(false);
+          console.log(response.status);
+          console.log(response.statusText);
+          return response.body;
         }
       },
       (error: HttpErrorResponse) => {
         console.log(error);
-        return responseEvent.next(false);
+        return false;
       }
     );
-
-    return responseEvent.asObservable();
+    
+    return;
   }
 
   //Está função sera implementada mais tarde !

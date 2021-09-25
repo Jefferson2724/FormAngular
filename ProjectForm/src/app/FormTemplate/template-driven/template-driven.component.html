@@ -4,7 +4,7 @@
             <label for="name" class="form-label">Nome:</label>
             <input id="name" class="form-control" name="name" placeholder="Nome"
             [(ngModel)]="dataUser.Nome" type="text" #name="ngModel"
-            [class.is-valid]="name.value != ''">
+            [class.is-valid]="name.value != '' && name.value != null">
             <div class="invalid-feedback" *ngIf="name.value == ''">
                 {{ mensagem }}
             </div>
@@ -23,7 +23,7 @@
         <label for="address">Endereco:</label>
         <input id="address" class="form-control" name="address" placeholder="Rua dos Bobos, nº 0"
         [(ngModel)]="dataUser.Endereco" type="text" #address="ngModel"
-        [class.is-valid]="address.value != ''">
+        [class.is-valid]="address.value != '' && name.value != null">
         <div class="invalid-feedback" *ngIf="address.value == ''">
             {{ mensagem }}
         </div>
@@ -33,7 +33,7 @@
             <label for="city">Cidade</label>
             <input class="form-control" name="city" id="city"
             [(ngModel)]="dataUser.Cidade" type="text"  #city="ngModel"
-            [class.is-valid]="city.value != ''">
+            [class.is-valid]="city.value != '' && name.value != null">
             <div class="invalid-feedback" *ngIf="city.value == ''">
                 {{ mensagem }}
             </div>
