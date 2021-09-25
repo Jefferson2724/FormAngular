@@ -28,47 +28,35 @@ export class TemplateDrivenComponent implements OnInit {
   ngOnInit() { }
 
   onSubmit(form: NgForm) {
-    this.resetMessageError();
-
     if(this.checkFields(form)){
-      console.log(this.mensagem);
+      this.mensagem = "Preencha este campo!";
       return;
     }
 
-    
     console.log(this.dataUser);
   }
 
-  private checkFields(form: NgForm) {
+  private checkFields(form: NgForm):boolean {
     if(form.value['name'] == ""){
-      this.mensagem = this.mensagem.replace('%s', "nome");
       return true;
     }
-    if(form.value['phone'] == null){
-      this.mensagem = this.mensagem.replace('%s', 'telefone');
+    else if(form.value['phone'] == null){
       return true;
     }
-    if(form.value['address'] == ""){
-      this.mensagem = this.mensagem.replace('%s', "address");
+    else if(form.value['address'] == ""){
       return true;
     }
-    if(form.value['city'] == ""){
-      this.mensagem = this.mensagem.replace('%s', "city");
+    else if(form.value['city'] == ""){
       return true;
     }
-    if(form.value['state'] == ""){
-      this.mensagem = this.mensagem.replace('%s', "state");
+    else if(form.value['state'] == ""){
       return true;
     }
-    if(form.value['CEP'] == null){
-      this.mensagem = this.mensagem.replace('%s', "CEP");
+    else if(form.value['CEP'] == null){
       return true;
     }
 
+    this.mensagem = "";
     return false;
-  }
-
-  resetMessageError(){
-    this.mensagem = "O campo %s não esta preenchido";
   }
 }
