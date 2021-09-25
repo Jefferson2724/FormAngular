@@ -21,9 +21,11 @@ export class FormDrivenService {
       response => {
         if(response.body.error){
           console.log("Deu errado...");
+
           return responseEvent.next(false);
         }else if(response.body.proceed){
           console.log("Deu bom");
+          
           return responseEvent.next(true);
         }else{
           return responseEvent.next(false);
